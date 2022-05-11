@@ -1,0 +1,8 @@
+jupyterlab
+numpy
+flask
+pandas
+sklearn
+tensorflow
+matplotlib
+tensorflow_hub

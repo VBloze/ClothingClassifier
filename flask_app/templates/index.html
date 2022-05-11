@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Clothing Classifier</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="mainPage">
+	<h1>Drabužių klasifikavimo modelis</h1>
+    <h4>Nuotrauka turi būti images aplanke.</h4>
+    <h4>Įrašykite nuotraukos pavadinimą, pvz: batai.jpg</h4>
+    <h5>Galimos naudoti drabužių kategorijos: "T-Shirt", "Longsleeve", "Pants", "Shirt", "Dress", "Shorts", "Shoes", "Outwear", "Hat", "Skirt".</h5>
+
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="file" placeholder="nuotraukos pavadinimas" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Prognozuoti</button>
+    </form>
+
+   <br>
+
+   {{ prediction_text }}
+   <br>
+   <img src="{{ image_file }}">
+
+ </div>
+
+
+</body>
+</html>
