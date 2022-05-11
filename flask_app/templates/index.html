@@ -8,10 +8,9 @@
 
 <body>
     <div class="mainPage">
-	    <h1>Drabužių klasifikavimo modelis</h1>
-        <h4>Nuotrauka turi būti "/static/images/" aplanke.</h4>
-        <h4>Įrašykite nuotraukos pavadinimą, pvz: batai.jpg</h4>
-        <h5>Galimos naudoti drabužių kategorijos: "T-Shirt", "Longsleeve", "Pants", "Shirt", "Dress", "Shorts", "Shoes", "Outwear", "Hat", "Skirt".</h5>
+        <h1>Drabužių klasifikavimo modelis</h1>
+        <h4>Nuotrauka turi būti "/static/images/" aplanke. Pateikite nuotraukos pavadinimą, pvz: batai.jpg</h4>
+        <h5>Drabužių kategorijos naudojamos modelyje: "T-Shirt", "Longsleeve", "Pants", "Shirt", "Dress", "Shorts", "Shoes", "Outwear", "Hat", "Skirt".</h5>
 
         <form action="{{ url_for('predict')}}"method="post">
     	    <input type="text" name="file" placeholder="Nuotraukos pavadinimas" required="required" />
