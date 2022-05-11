@@ -1,10 +1,5 @@
-import numpy as np
 from flask import Flask, flash, request, jsonify, render_template
-import os
-import pandas as pd
 import tensorflow as tf
-import matplotlib.pylab as plt
-from werkzeug.utils import secure_filename
 
 def create_preproc_image(filename):
     preproc = _Preprocessor()
@@ -41,21 +36,14 @@ class _Preprocessor:
     def preprocess(self, img):
         return tf.image.resize_with_pad(img, IMG_HEIGHT, IMG_WIDTH)
 
-
-
-
 serving_model = tf.keras.models.load_model("ClothingPredictionModel")
 
-categories=["T-Shirt", "Longsleeve", "Pants", "Shoes", "Shirt", "Dress", "Outwear", "Shorts", "Hat", "Skirt"]
+categories = ["T-Shirt", "Longsleeve", "Pants", "Shoes", "Shirt", "Dress", "Outwear", "Shorts", "Hat", "Skirt"]
 IMG_HEIGHT = 224
 IMG_WIDTH = 224
 IMG_CHANNELS = 3
 
-PEOPLE_FOLDER = os.path.join('static', 'static/images')
-
-# Create flask app
 flask_app = Flask(__name__)
-#flask_app.config['UPLOAD_FOLDER'] = PEOPLE_FOLDER
 
 @flask_app.route("/")
 def Home():
@@ -65,7 +53,6 @@ def Home():
 def predict():
     filename = "static/images/" + request.form["file"]
     img = create_preproc_image(filename)
-    # return render_template('upload.html', filename=filename)
     batch_image = tf.reshape(img, [1, IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS])
     batch_pred = serving_model.predict(batch_image)
     pred = batch_pred[0]
