@@ -40,7 +40,7 @@ Lentelėje žemiau pateikti apmokytų kategorijų pavyzdžiai iš pradinių duom
 
 API svetainės vaizdas:
 
-![API](API view.jpg)
+![API](API_view.jpg)
 ## Išvados
 Sukurtų tiesinių modelių tikslumas nedidelis - 44%, optimizavus pavyko gauti šiek tiek geresnį tikslumą - 47%.
 Sunku pasiekti didesnį šių modelių tikslumą dėl nedidelio duomenų kiekio ir ribotų kompiuterio pajėgumų, todėl
